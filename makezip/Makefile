@@ -7,3 +7,7 @@ clark-simple-kernel.zip: $(shell find template) template/Image
 
 template/Image: ../arch/arm64/boot/Image
 	cp ../arch/arm64/boot/Image ./template/Image
+
+clean:
+	rm -rf ./clark-simple-kernel.zip
+	rm -rf ./template/Image
