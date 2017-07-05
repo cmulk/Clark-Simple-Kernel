@@ -4,7 +4,7 @@
 ## AnyKernel setup
 # begin properties
 properties() {
-kernel.string=Clark-Simple-Kernel
+kernel.string=Clark-Simple-Kernel by cmulk
 do.devicecheck=1
 do.modules=0
 do.cleanup=1
