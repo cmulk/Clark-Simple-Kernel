@@ -1,4 +1,4 @@
-# Handbag init script
+# Custom Governor Settings init script
 
 on property:sys.boot_completed=1
     # Glassfish 1.2 Settings from soniCron, but with 384000 min_freq on big core
@@ -33,7 +33,7 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_sched_load 0
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 0
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/boostpulse_duration 0
-    write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 1
+    write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 0
     write /sys/module/cpu_boost/parameters/input_boost_enabled 1
     write /sys/module/cpu_boost/parameters/input_boost_freq "0:600000 1:600000 2:600000 3:600000 4:0 5:0"
     write /sys/module/cpu_boost/parameters/boost_ms 0
