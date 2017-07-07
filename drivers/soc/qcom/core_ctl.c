@@ -103,7 +103,19 @@ static ssize_t store_min_cpus(struct cpu_data *state,
 	if (sscanf(buf, "%u\n", &val) != 1)
 		return -EINVAL;
 
-	state->min_cpus = min(val, state->max_cpus);
+	//Tweak to set min_cpus to either 2 or 0
+	//Without this, it always gets set to 1 (by mpdecision I think)	
+	if (state->is_big_cluster)
+	{
+		if (val == 2)
+			state->min_cpus = 2;
+		else		
+			state->min_cpus = 0;
+	}
+	else
+	{
+		state->min_cpus = min(val, state->max_cpus);
+	}
 	wake_up_hotplug_thread(state);
 
 	return count;
